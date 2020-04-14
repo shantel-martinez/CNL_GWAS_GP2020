@@ -10,8 +10,8 @@ All input files to reproduce the analysis can be downloaded from [CNL_GWAS_GP202
 
 | Description          | .Rmd File Name          | Input Files Needed         |
 | --------------------- | ---------------- | ------------------------- |
-| Data Prep, BLUP, h2    | CNL_Prep_Stats_PHS.md | PHSAll_Comb_20181222.csv |
-| Genome-wide association analysis      | CNL_GWAS_PHS.md | myGD.csv |
+| Data Prep, BLUP, h2    | CNL_Prep_Stats_PHS.Rmd | PHSAll_Comb_20181222.csv |
+| Genome-wide association analysis      | CNL_GWAS_PHS.Rmd | myGD.csv |
 |        |   | myGM.csv |
 |        |   | allMasterDatawithOHMI_June2017miss30.RData |
-| Genomic prediction - all environments |          .      |   .       |
+| Genomic prediction - all environments |            |         |
