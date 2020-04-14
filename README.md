@@ -10,6 +10,6 @@ All input files to reproduce the analysis can be downloaded from [CNL_GWAS_GP202
 
 | Description          | Viewable Webpage          | .Rmd Download          |
 | --------------------- | ---------------- | ------------------------- |
-| Data Prep, BLUP, h2    | [CNL_Prep_Stats_PHS.md](./Data Analysis/CNL_Prep_Stats_PHS.md) | [CNL_Prep_Stats_PHS.Rmd](./Data Analysis/CNL_Prep_Stats_PHS.Rmd) |
+| Data Prep, BLUP, h2    | [CNL_Prep_Stats_PHS.md][./Data Analysis/CNL_Prep_Stats_PHS.md] | [CNL_Prep_Stats_PHS.Rmd](./Data Analysis/CNL_Prep_Stats_PHS.Rmd) |
 | Genome-wide association analysis      | [CNL_GWAS_PHS.md](./Data Analysis/CNL_GWAS_PHS.md) | [CNL_GWAS_PHS.Rmd](./Data Analysis/CNL_GWAS_PHS.Rmd) |
 | Genomic prediction - all environments |          .      |   .       |
