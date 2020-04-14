@@ -8,8 +8,10 @@ This study used a diversity panel of 1,353 lines from the wheat breeding program
 
 All input files to reproduce the analysis can be downloaded from [CNL_GWAS_GP2020](https://github.com/shantel-martinez/CNL_GWAS_GP2020/tree/master/Data%20Input).     
 
-| Description          | Viewable md page          | .Rmd Download Location          |
+| Description          | .Rmd File Name          | Input Files Needed         |
 | --------------------- | ---------------- | ------------------------- |
-| Data Prep, BLUP, h2    | ./Data Analysis/CNL_Prep_Stats_PHS.md | ./Data Analysis/CNL_Prep_Stats_PHS.Rmd |
-| Genome-wide association analysis      | ./Data Analysis/CNL_GWAS_PHS.md | ./Data Analysis/CNL_GWAS_PHS.Rmd |
+| Data Prep, BLUP, h2    | CNL_Prep_Stats_PHS.md | PHSAll_Comb_20181222.csv |
+| Genome-wide association analysis      | CNL_GWAS_PHS.md | myGD.csv |
+|        |   | myGM.csv |
+|        |   | allMasterDatawithOHMI_June2017miss30.RData |
 | Genomic prediction - all environments |          .      |   .       |
