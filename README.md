@@ -23,6 +23,6 @@ Viewable data analysis: [CNL_Prep_Stats_PHS](https://github.com/shantel-martinez
 Downloadable Rmd File: [CNL_Prep_Stats_PHS.Rmd](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Analysis/CNL_Prep_Stats_PHS.Rmd) 
 
 ## GWAS  
-Viewable data analysis: [CNL_GWAS_PHS](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Analysis/CNL_GWAS_PHS.md) 
+Viewable data analysis: [CNL_GWAS_PHS](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Analysis/CNL_GWAS_PHS.md)  
 Downloadable Rmd File: [CNL_GWAS_PHS.Rmd](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Analysis/CNL_GWAS_PHS.Rmd)  
 
