@@ -5,7 +5,7 @@ date: "`r format(Sys.time(), '%Y.%m.%d')`"
 author: S.A. Martinez
 ---
 
-**Genome-wid association analysis** of the Cornell Master elite nursery for the Preharvest Sprouting trait using the spike-wetting tests. 
+**Genome-wide association analysis** of the Cornell Master elite nursery for the Preharvest Sprouting trait using the spike-wetting tests. 
 
 This study used a diversity panel of 1,353 lines from the wheat breeding programs at Cornell University (1,032), Michigan State (112), Ohio State (85), and private companies (51) in addition to landraces (14). The diversity panel also consists of 904 (67%) white kernel color and 449 (33%) were red kernelled. Downstream analyses were conducted on either data subset of white kernel color (white), red kernel color (red), and combined (comb or both) kernel color datasets. 
 

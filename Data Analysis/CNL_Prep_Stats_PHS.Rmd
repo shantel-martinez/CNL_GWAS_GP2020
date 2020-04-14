@@ -20,7 +20,7 @@ For each location, 5 spikes/heads were harvested from each plot at physiological
 
 ```{R message=FALSE, warning=FALSE}
 rm(list = ls())
-PHSComb <- read.csv("./PHSAll_Comb_20181222.csv", head = TRUE,na.string=c(""," ","NA","na","NaN"), stringsAsFactors=FALSE) 
+PHSComb <- read.csv("../Data Input/PHSAll_Comb_20181222.csv", head = TRUE,na.string=c(""," ","NA","na","NaN"), stringsAsFactors=FALSE) 
 PHSComb <- PHSComb[!is.na(PHSComb$RawMean),]
 ```
 
@@ -48,8 +48,8 @@ Seperating the dataframes into two df: red or white KC based on `$KC` column
 ```{r message= FALSE, warning=FALSE}
 PHSred <- subset(PHSComb, PHSComb$KC=="R" |PHSComb$KC=="r" )
 PHSWhite <-subset(PHSComb, PHSComb$KC=="W" |PHSComb$KC=="w" ) 
-write.csv(PHSred, "./CNL_Prep_Stats_PHS_files/PHSAll_Red_20191222.csv",row.names=FALSE)
-write.csv(PHSWhite, "./CNL_Prep_Stats_PHS_files/PHSAll_White_20191222.csv",row.names=FALSE)
+write.csv(PHSred, "../Data Analysis/CNL_Prep_Stats_PHS_files/PHSAll_Red_20191222.csv",row.names=FALSE)
+write.csv(PHSWhite, "../Data Analysis/CNL_Prep_Stats_PHS_files/PHSAll_White_20191222.csv",row.names=FALSE)
 
 length(unique(PHSWhite$GID)) #White subset
 length(unique(PHSred$GID)) #Red subset
@@ -482,7 +482,7 @@ d <- ggplot(PHSrGIDblup, aes(PHSrGIDblup$KC, PHSrGIDblup$blup...GID...)) +
 library(gridExtra)
 a <- a+ xlab("")
 p <- grid.arrange(a, b, c,d, nrow = 2,  widths = c(5, 1),heights = c(14,12))
-# ggsave("./CNL_Prep_Stats_PHS_files/SproutMeans20200409.png", plot =p,width = 16, height = 12, units = "in")
+# ggsave("../Data Analysis/CNL_Prep_Stats_PHS_files/SproutMeans20200409.png", plot =p,width = 16, height = 12, units = "in")
 ```
 
 Before we move any further to downstream analysis, we've accumulated a lot of dataframes in our environment while prepping the three BLUP dataframes. 

@@ -7,6 +7,9 @@ S.A. Martinez
 
 This study used a diversity panel of 1,353 lines from the wheat breeding programs at Cornell University (1,032), Michigan State (112), Ohio State (85), and private companies (51) in addition to landraces (14). The diversity panel also consists of 904 (67%) white kernel color and 449 (33%) were red kernelled. Downstream analyses were conducted on either data subset of white kernel color (white), red kernel color (red), and combined (comb or both) kernel color datasets.
 
+> All files in referenced in this document can be downloaded from [CNL\_GWAS\_GP2020](https://github.com/shantel-martinez/CNL_GWAS_GP2020).
+> Users will need the following in the same working directory as this CNL\_Prep\_Stats\_PHS.Rmd file: [PHSAll\_Comb\_20181222.csv](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/PHSAll_Comb_20181222.csv)
+
 PHS Phenotype Files
 -------------------
 
@@ -16,11 +19,11 @@ For each location, 5 spikes/heads were harvested from each plot at physiological
 
 ``` r
 rm(list = ls())
-PHSComb <- read.csv("./PHSAll_Comb_20181222.csv", head = TRUE,na.string=c(""," ","NA","na","NaN"), stringsAsFactors=FALSE) 
+PHSComb <- read.csv("../Data Input/PHSAll_Comb_20181222.csv", head = TRUE,na.string=c(""," ","NA","na","NaN"), stringsAsFactors=FALSE) 
 PHSComb <- PHSComb[!is.na(PHSComb$RawMean),]
 ```
 
-> > Refer to `PHS Data Exploration.v3.R` to see how I cleaned up and organized the raw phenotype files.
+> Refer to `PHS Data Exploration.v3.R` to see how I cleaned up and organized the raw phenotype files.
 
 `GID` is a genotype identification number refered to the line tested. The line name is in the `Entry` column.
 
@@ -41,8 +44,8 @@ Seperating the dataframes into two df: red or white KC based on `$KC` column
 ``` r
 PHSred <- subset(PHSComb, PHSComb$KC=="R" |PHSComb$KC=="r" )
 PHSWhite <-subset(PHSComb, PHSComb$KC=="W" |PHSComb$KC=="w" ) 
-write.csv(PHSred, "./CNL_Prep_Stats_PHS_files/PHSAll_Red_20191222.csv",row.names=FALSE)
-write.csv(PHSWhite, "./CNL_Prep_Stats_PHS_files/PHSAll_White_20191222.csv",row.names=FALSE)
+write.csv(PHSred, "../Data Analysis/CNL_Prep_Stats_PHS_files/PHSAll_Red_20191222.csv",row.names=FALSE)
+write.csv(PHSWhite, "../Data Analysis/CNL_Prep_Stats_PHS_files/PHSAll_White_20191222.csv",row.names=FALSE)
 
 length(unique(PHSWhite$GID)) #White subset
 ```
@@ -811,7 +814,7 @@ p <- grid.arrange(a, b, c,d, nrow = 2,  widths = c(5, 1),heights = c(14,12))
 ![](CNL_Prep_Stats_PHS_files/figure-markdown_github/unnamed-chunk-20-1.png)
 
 ``` r
-# ggsave("./CNL_Prep_Stats_PHS_files/SproutMeans20200409.png", plot =p,width = 16, height = 12, units = "in")
+# ggsave("./Data Analysis/CNL_Prep_Stats_PHS_files/SproutMeans20200409.png", plot =p,width = 16, height = 12, units = "in")
 ```
 
 Before we move any further to downstream analysis, we've accumulated a lot of dataframes in our environment while prepping the three BLUP dataframes.
