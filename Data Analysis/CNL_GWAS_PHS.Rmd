@@ -50,6 +50,7 @@ myGD[1:4,1:4]
 
 Summary of GIDs per location with genotypic data  
 
+**Table1a: Unique genotypes per environment.**
 ```{r}
 library("dplyr")
 PHSComb1 <- subset(PHSCombComplete, GID %in% myGD$X)
@@ -70,10 +71,8 @@ a <- cbind(c,w,r)
 a %>%
   dplyr::select(Year, Loc, Comb, White, Red)
 ```
-Table1: Unique genotypes per environment. 
 
-
-
+**Table1b : Summary of the unique lines tested for Preharvest Sprouting across years**
 ```{r}
 PHSWhite1 <- subset(PHSWhiteComplete, GID %in% myGD$X)
 a <- PHSWhite1 %>%
@@ -88,9 +87,8 @@ c <- cbind(a,b)
 c%>%
   dplyr::select(Year, White, Red) 
 ```
-Table2 : Summary of the unique lines tested for Preharvest Sprouting across years
 
-
+**Table1c : Summary of the unique lines tested for Preharvest Sprouting across locations**
 ```{r}
 PHSComb1 <- subset(PHSCombComplete, GID %in% myGD$X)
 PHSWhite1 <- subset(PHSWhiteComplete, GID %in% myGD$X)
@@ -114,8 +112,8 @@ a <- cbind(c,w,r)
 a %>%
   dplyr::select(Loc, Comb, White, Red) 
 ```
-Table3 : Summary of the unique lines tested for Preharvest Sprouting across locations
 
+**Table1c : Summary of the unique lines tested for Preharvest Sprouting overall**
 ```{r}
 PHSComb1 <- subset(PHScGIDblup, GID %in% myGD$X)
 c<-PHSComb1 %>%
@@ -129,8 +127,6 @@ r<- PHSred1 %>%
 a <- cbind(c,w,r) 
 a
 ```
-Table4 : Summary of the unique lines tested for Preharvest Sprouting overall
-
 
 All of these summary values were combined into one table in the publication referred to as **Table 1**.   
 
@@ -533,6 +529,7 @@ Note: Position `pos` refers to the RefSeq v1.0 position. Refer to Adamski et al.
 
 Data included in **Table 2** of the publicatio only include PC = 0. Results from PC = 4 are in a supplementary table. 
 
+**Table 2: Summary of QTN -log10p > 5.36 in the FarmCPU GWAS analysis**
 ```{r warning=FALSE}
 library(stringr)
 library(dplyr)
@@ -546,5 +543,4 @@ PHS %>%
   arrange(str_extract(chrom, '^.'), pos)  %>%
   dplyr::select(rs, chrom, Position,  log10p, effect, KC, PC)
 ```
-Table 5: Summary of QTN -log10p > 5.36 in the FarmCPU GWAS analysis
 

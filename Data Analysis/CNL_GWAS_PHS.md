@@ -54,6 +54,8 @@ myGD[1:4,1:4]
 
 Summary of GIDs per location with genotypic data
 
+**Table1a: Unique genotypes per environment.**
+
 ``` r
 library("dplyr")
 ```
@@ -107,7 +109,7 @@ a %>%
     ## 10 2013  Helfer     80    51    29
     ## # ... with 14 more rows
 
-Table1: Unique genotypes per environment.
+**Table1b : Summary of the unique lines tested for Preharvest Sprouting across years**
 
 ``` r
 PHSWhite1 <- subset(PHSWhiteComplete, GID %in% myGD$X)
@@ -135,7 +137,7 @@ c%>%
     ## 8 2017    74  97
     ## 9 2018    25  21
 
-Table2 : Summary of the unique lines tested for Preharvest Sprouting across years
+**Table1c : Summary of the unique lines tested for Preharvest Sprouting across locations**
 
 ``` r
 PHSComb1 <- subset(PHSCombComplete, GID %in% myGD$X)
@@ -167,7 +169,7 @@ a %>%
     ## 3 McGowen  575   389 186
     ## 4  Snyder  687   438 249
 
-Table3 : Summary of the unique lines tested for Preharvest Sprouting across locations
+**Table1c : Summary of the unique lines tested for Preharvest Sprouting overall**
 
 ``` r
 PHSComb1 <- subset(PHScGIDblup, GID %in% myGD$X)
@@ -185,8 +187,6 @@ a
 
     ##   Comb White Red
     ## 1 1043   730 313
-
-Table4 : Summary of the unique lines tested for Preharvest Sprouting overall
 
 All of these summary values were combined into one table in the publication referred to as **Table 1**.
 
@@ -554,6 +554,8 @@ Note: Position `pos` refers to the RefSeq v1.0 position. Refer to Adamski et al.
 
 Data included in **Table 2** of the publicatio only include PC = 0. Results from PC = 4 are in a supplementary table.
 
+**Table 2: Summary of QTN -log10p &gt; 5.36 in the FarmCPU GWAS analysis**
+
 ``` r
 library(stringr)
 library(dplyr)
@@ -590,5 +592,3 @@ PHS %>%
     ## 19 S5A_PART2_115319990    5A 568,550,509   6.02  -0.15   Red  0
     ## 20  S7A_PART1_75051851    7A  75,051,851   7.65   0.23   Red  0
     ## 21 S7B_PART2_211555919    7B 665,378,556   6.49   0.86 White  4
-
-Table 5: Summary of QTN -log10p &gt; 5.36 in the FarmCPU GWAS analysis
