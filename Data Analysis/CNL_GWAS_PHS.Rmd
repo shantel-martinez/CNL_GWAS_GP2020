@@ -207,7 +207,7 @@ Define `myY` and `myGD` based on the GAPIT manual:
 > `myGD` and `myGM` must be in the same order 
 
 ```{r}
-myGM<-read.csv("./myGM.csv", head = TRUE,na.string=c(""," ","NA","na","NaN"))
+myGM<-read.csv("../Data Input/myGM.csv", head = TRUE,na.string=c(""," ","NA","na","NaN"))
 myGM$X <- NULL
 myGM$chrom <- as.character(myGM$chrom)
 myGM$chrom[which(myGM$chrom == "1A")] <- "1"
@@ -372,9 +372,9 @@ QQ_df <- white4df
 
 
 white0 <- read.csv("./20200409/YrHarv_0PC/FarmCPU.BLUP_White.GWAS.Results.csv", head = TRUE)
-N1 <- length(white0$P.value) #this is the length of your gwas pvalues which is = your marker No.
-expected <- sort( (-log10( c(1:N1) * (1/N1) ) )+2) #this like uniform distribution
-observed <- sort( -(log10(white0$P.value))) #the df with the -log10(p) values
+N1 <- length(white0$P.value)
+expected <- sort( (-log10( c(1:N1) * (1/N1) ) )+2) 
+observed <- sort( -(log10(white0$P.value))) 
 white0df <- as.data.frame(cbind(expected, observed))
 white0df$KC <- "White"
 white0df$PC <- "0"
@@ -382,9 +382,9 @@ white0df$GWAS <- "white_0PC"
 
 
 red4 <- read.csv("./20200409/YrHarv_4PC/FarmCPU.BLUP_Red.GWAS.Results.csv", head = TRUE)
-N1 <- length(red4$P.value) #this is the length of your gwas pvalues which is = your marker No.
-expected <- sort( (-log10( c(1:N1) * (1/N1) ) )+2) #this like uniform distribution
-observed <- sort( -(log10(red4$P.value))) #the df with the -log10(p) values
+N1 <- length(red4$P.value) 
+expected <- sort( (-log10( c(1:N1) * (1/N1) ) )+2)  
+observed <- sort( -(log10(red4$P.value)))  
 red4df <- as.data.frame(cbind(expected, observed))
 red4df$KC <- "red"
 red4df$PC <- "4"
@@ -392,9 +392,9 @@ red4df$GWAS <- "red_4PC"
 
 
 red0 <- read.csv("./20200409/YrHarv_0PC/FarmCPU.BLUP_Red.GWAS.Results.csv", head = TRUE)
-N1 <- length(red0$P.value) #this is the length of your gwas pvalues which is = your marker No.
-expected <- sort( (-log10( c(1:N1) * (1/N1) ) )+2) #this like uniform distribution
-observed <- sort( -(log10(red0$P.value))) #the df with the -log10(p) values
+N1 <- length(red0$P.value)  
+expected <- sort( (-log10( c(1:N1) * (1/N1) ) )+2)  
+observed <- sort( -(log10(red0$P.value))) 
 red0df <- as.data.frame(cbind(expected, observed))
 red0df$KC <- "red"
 red0df$PC <- "0"
@@ -402,7 +402,7 @@ red0df$GWAS <- "red_0PC"
 
 QQ_df <- rbind(QQ_df, white0df, red4df, red0df)
 
-
+library("ggplot2")
 ggplot(data = QQ_df, aes(x = expected, y = observed, color = GWAS))+
   geom_point()+
   geom_smooth(aes(group=GWAS))+
@@ -535,6 +535,7 @@ Data included in **Table 2** of the publicatio only include PC = 0. Results from
 
 ```{r warning=FALSE}
 library(stringr)
+library(dplyr)
 PHS0$PC <- "0"
 PHS4$PC <- "4"
 PHS <- rbind(PHS0, PHS4)
@@ -542,7 +543,8 @@ PHS <- rbind(PHS0, PHS4)
 PHS %>%  
   mutate(log10p = round(log10p,2), effect = round(effect,2),  Position = prettyNum(pos,big.mark=",") ) %>%
   filter(log10p > p.threshold) %>%
-  arrange(str_extract(chrom, '^.'), pos) %>%
+  arrange(str_extract(chrom, '^.'), pos)  %>%
+  dplyr::select(rs, chrom, Position,  log10p, effect, KC, PC)
 ```
 Table 5: Summary of QTN -log10p > 5.36 in the FarmCPU GWAS analysis
 
