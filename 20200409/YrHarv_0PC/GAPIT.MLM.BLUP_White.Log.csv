@@ -1,0 +1,12 @@
+Model,Value
+Trait,c("730", "2")
+group.by ,10
+Trait name ,MLM.BLUP_White
+Kinship,730:731
+Z Matrix,c(731, 731)
+Covariate,c(730, 2)
+SNP.P3D,TRUE
+Clustering algorithms,average
+Group kinship,Mean
+group.from ,730
+group.to ,730
