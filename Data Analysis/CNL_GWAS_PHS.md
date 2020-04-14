@@ -6,17 +6,18 @@ S.A. Martinez
 **Genome-wide association analysis** of the Cornell Master elite nursery for the Preharvest Sprouting trait using the spike-wetting tests.
 
 > All files in referenced in this document can be downloaded from [CNL\_GWAS\_GP2020](https://github.com/shantel-martinez/CNL_GWAS_GP2020).
-> Users will need the following in the same working directory as this CNL\_GWAS\_PHS.Rmd file: [myGD.csv](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/myGD.csv), [myGM.csv](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/myGM.csv), and [allMasterDatawithOHMI\_June2017miss30.RData](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/allMasterDatawithOHMI_June2017miss30.RData)
+> Users will need the following in the same working directory as this CNL\_GWAS\_PHS.Rmd file: [myGD.csv](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Input/myGD.csv), [myGM.csv](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Input/myGM.csv), and [allMasterDatawithOHMI\_June2017miss30.RData](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Input/allMasterDatawithOHMI_June2017miss30.RData)
 
-This analysis follows the [CNL\_Prep\_Stats\_PHS](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/CNL_Prep_Stats_PHS.md) analysis in the [CNL\_GWAS\_GP2020](https://github.com/shantel-martinez/CNL_GWAS_GP2020) project. The environment should contain only the following dataframes:
+This analysis follows the [CNL\_Prep\_Stats\_PHS](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Analysis/CNL_Prep_Stats_PHS.md) analysis in the [CNL\_GWAS\_GP2020](https://github.com/shantel-martinez/CNL_GWAS_GP2020) project. The environment should contain only the following dataframes:
 
 ``` r
 load("./CNL_Prep_Stats_PHS.RData")
 rm(list= ls()[!(ls() %in% c('PHScGIDblup','PHSwGIDblup','PHSrGIDblup','PHSWhiteComplete','PHSCombComplete','PHSRedComplete'))])
 ```
 
-If these dataframes are **not** in the current environment, open the [CNL\_Prep\_Stats\_PHS.Rmd](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/CNL_Prep_Stats_PHS.Rmd) file and run all coding chunks. *Be sure to have all the corresponding input files needed to run*
-OR Download the [CNL\_Prep\_Stats\_PHS.Rdata](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/CNL_Prep_Stats_PHS.RData) files from github, save in the working directory this CNL\_GWAS\_PHS.Rmd is in.
+If these dataframes are **not** in the current environment, open the [CNL\_Prep\_Stats\_PHS.Rmd](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Analysis/CNL_Prep_Stats_PHS.Rmd) file and run all coding chunks. *Be sure to have all the corresponding input files needed to run*
+OR
+Download the [CNL\_Prep\_Stats\_PHS.Rdata](https://github.com/shantel-martinez/CNL_GWAS_GP2020/blob/master/Data%20Analysis/CNL_Prep_Stats_PHS.RData) files from github, save in the working directory this CNL\_GWAS\_PHS.Rmd is in.
 
 PHS Genotype Files
 ------------------
@@ -169,7 +170,7 @@ a %>%
     ## 3 McGowen  575   389 186
     ## 4  Snyder  687   438 249
 
-**Table1c : Summary of the unique lines tested for Preharvest Sprouting overall**
+**Table1d : Summary of the unique lines tested for Preharvest Sprouting overall**
 
 ``` r
 PHSComb1 <- subset(PHScGIDblup, GID %in% myGD$X)
@@ -552,7 +553,7 @@ What happened the 7D? Potetially every marker was below -log(p)&lt;2.0, so the f
 
 Note: Position `pos` refers to the RefSeq v1.0 position. Refer to Adamski et al., [2020](https://doi.org/10.7554/eLife.55646) for a summary of the reference genomes and IWGSC et al., [2018](http://science.sciencemag.org/content/361/6403/eaar7191) for the v1.0 publication.
 
-Data included in **Table 2** of the publicatio only include PC = 0. Results from PC = 4 are in a supplementary table.
+Data included in **Table 2** of the publication only include PC = 0. Results from PC = 4 are in a supplementary table.
 
 **Table 2: Summary of QTN -log10p &gt; 5.36 in the FarmCPU GWAS analysis**
 
