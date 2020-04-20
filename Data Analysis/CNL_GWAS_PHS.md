@@ -1,7 +1,7 @@
 CNL GWAS PHS
 ================
 S.A. Martinez
-2020.04.14
+2020.04.20
 
 **Genome-wide association analysis** of the Cornell Master elite nursery for the Preharvest Sprouting trait using the spike-wetting tests.
 
@@ -466,9 +466,10 @@ QQ_df <- rbind(QQ_df, white0df, red4df, red0df)
 library("ggplot2")
 ggplot(data = QQ_df, aes(x = expected, y = observed, color = GWAS))+
   geom_point()+
-  geom_smooth(aes(group=GWAS))+
+  geom_smooth(aes(group=GWAS,fill = GWAS))+
   geom_abline(intercept = 0, color = "Red")+
   scale_colour_viridis_d()+
+  scale_fill_viridis_d()+
   ylim(2,10)+xlim(2,4.25)+theme_bw()+
   ylab("Observed -log(p-value)") + xlab("Expected -log(p-value)")+
   theme(panel.grid.major.x = element_blank(),
