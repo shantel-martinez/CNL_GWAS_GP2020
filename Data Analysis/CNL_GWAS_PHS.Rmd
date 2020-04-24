@@ -545,3 +545,8 @@ PHS %>%
   dplyr::select(rs, chrom, Position,  log10p, effect, KC, PC)
 ```
 
+
+# Session Information 
+```{r}
+sessionInfo()
+```
