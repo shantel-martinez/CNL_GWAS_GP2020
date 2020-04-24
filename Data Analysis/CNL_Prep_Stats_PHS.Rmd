@@ -310,6 +310,22 @@ For all of the models with a Year x harvest interation stated in the equation, t
 Check heritability to see if using either effect in the model changes h2.   
 
 
+### Effect of GenoxEnv interactions
+
+```{r}
+White_GE <- lmer(RawMean~(1|GID)+Env+(1|GID:Env)+HD+YrHarv, data = PHSWhiteComplete)
+# White_G <- lm(RawMean~GID+Env+HD+Harvest, data = PHSWhiteComplete)
+summary(White_GE)
+
+Red_GE <- lmer(RawMean~(1|GID)+Env+(1|GID:Env)+HD+YrHarv, data = PHSRedComplete)
+summary(Red_GE)
+
+```
+
+
+
+
+
 
 ### Calculating Heritability  
 
@@ -598,16 +614,36 @@ d <- ggplot(PHSrGIDblup, aes(PHSrGIDblup$KC, PHSrGIDblup$blup...GID...)) +
 
 library(gridExtra)
 p <- grid.arrange(a, b, c,d, nrow = 2,  widths = c(6, 1),heights = c(14,14))
-ggsave("../Data Analysis/CNL_Prep_Stats_PHS_files/SproutMeansGID_20200420.png", plot =p,width = 18, height = 12, units = "in")
+ggsave("../Data Analysis/CNL_Prep_Stats_PHS_files/SproutMeansGID_20200420.jpg", plot =p,width = 18, height = 11, units = "in")
 
 ```
 
+
+
+
+### Unbalanced Nature of Breeding Program
+
+```{r}
+library(tidyverse)
+p <- PHSCombComplete %>%
+  group_by(GID)%>%
+  tally() %>%
+  ggplot(aes(x = n)) +
+    geom_histogram()+
+    stat_bin(geom="text", aes(label=..count..) , vjust = -0.5)+ 
+    scale_x_continuous(breaks = seq(0 , 160, 10 ))
+p
+```
+
+
+
+------
 
 Before we move any further to downstream analysis, we've accumulated a lot of dataframes in our environment while prepping the three BLUP dataframes. 
 
 Tidy up the global environment to only include `PHScGIDblup`, `PHSwGIDblup` , and `PHSrGIDblup` .  
 
-```{r warning=FALSE}
+```{r eval = FALSE, warning=FALSE}
 rm(list= ls()[!(ls() %in% c('PHScGIDblup','PHSwGIDblup','PHSrGIDblup','PHSWhiteComplete','PHSCombComplete','PHSRedComplete'))])
 save.image(file="CNL_Prep_Stats_PHS.RData")
 ```
